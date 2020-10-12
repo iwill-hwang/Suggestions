@@ -39,7 +39,7 @@ private extension String {
     }
 }
 
-class SuggestionViewController: UIViewController {
+public class SuggestionViewController: UIViewController {
     private var alreadyAppeared = false
     
     weak var delegate: SuggestionViewControllerDelegate?
@@ -60,16 +60,16 @@ class SuggestionViewController: UIViewController {
         return model
     }
     
-    static func instantiate() -> UIViewController {
+    static public func instantiate() -> UIViewController {
         let viewController = UIStoryboard(name: "Support", bundle: Bundle.module).instantiateViewController(withIdentifier: "SLSuggestionNavigationController")
         return viewController
     }
     
-    static func canSendText() -> Bool {
+    static public func canSendText() -> Bool {
         return true
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Suggestions".localized()
         
@@ -90,12 +90,12 @@ class SuggestionViewController: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.setNeedsLayout()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if alreadyAppeared == false {
             textView.becomeFirstResponder()
@@ -181,21 +181,21 @@ class SuggestionViewController: UIViewController {
 }
 
 extension SuggestionViewController: UITextViewDelegate {
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    public func textViewDidBeginEditing(_ textView: UITextView) {
         updateSendButton(textView.text.count > 0)
     }
-    func textViewDidEndEditing(_ textView: UITextView) {
+    public func textViewDidEndEditing(_ textView: UITextView) {
         textViewPlaceHolderLabel.isHidden = textView.text.count > 0
     }
     
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         textViewPlaceHolderLabel.isHidden = textView.text.count > 0
         updateSendButton(textView.text.count > 0)
     }
 }
 
 extension SuggestionViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textView.becomeFirstResponder()
         return true
     }
