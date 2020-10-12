@@ -35,7 +35,7 @@ protocol SuggestionViewControllerDelegate: class {
 
 private extension String {
     func localized() -> String {
-        return NSLocalizedString(self, comment: self)
+        return NSLocalizedString(self, tableName: nil, bundle: .module, comment: "")
     }
 }
 

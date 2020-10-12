@@ -4,7 +4,8 @@
 import PackageDescription
 
 let package = Package(
-    name: "suggestions",
+    name: "Suggestions",
+    defaultLocalization: "en",
     platforms: [.iOS(.v12)
         ],
     products: [
@@ -23,7 +24,10 @@ let package = Package(
         .target(
             name: "suggestions",
             dependencies: [],
-            resources: [.process("Support.storyboard")]
+            resources: [
+                .process("Support.storyboard"),
+                .process("Strings")
+            ]
             ),
         .testTarget(
             name: "suggestionsTests",
