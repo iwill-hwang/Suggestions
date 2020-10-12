@@ -25,7 +25,7 @@ let package = Package(
             name: "Suggestions",
             dependencies: [],
             resources: [
-                .process("Support.storyboard"),
+                .process("Storyboards"),
                 .process("Strings")
             ]
             ),

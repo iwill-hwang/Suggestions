@@ -28,7 +28,7 @@
         <!--Suggestion-->
         <scene sceneID="msj-pc-nUf">
             <objects>
-                <viewController id="2Og-B7-IC6" customClass="SuggestionViewController" sceneMemberID="viewController">
+                <viewController id="2Og-B7-IC6" customClass="SuggestionViewController" customModule="Suggestions" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cfH-qa-jUv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
