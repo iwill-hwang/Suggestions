@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N7F-fY-PGY">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="7Bi-9k-Uvn">
+            <objects>
+                <navigationController storyboardIdentifier="SLSuggestionNavigationController" id="N7F-fY-PGY" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="27U-WH-MZJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2Og-B7-IC6" kind="relationship" relationship="rootViewController" id="yr3-Ij-qRr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YRh-mQ-UZ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-345" y="68"/>
+        </scene>
+        <!--Suggestion-->
+        <scene sceneID="msj-pc-nUf">
+            <objects>
+                <viewController id="2Og-B7-IC6" customClass="SuggestionViewController" customModule="WidgetMemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cfH-qa-jUv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bG0-vg-VQC">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일 (선택사항) 을 남겨주시면 답변을 보내드립니다." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="32O-zF-BvM">
+                                        <rect key="frame" x="15" y="10" width="345" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Nm6-1d-fff"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="2Og-B7-IC6" id="TKM-cv-gfU"/>
+                                        </connections>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xub-aY-4aD">
+                                        <rect key="frame" x="10" y="55" width="355" height="1"/>
+                                        <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="sCg-fl-35U"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여기에 의견을 자유롭게 남겨주세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUZ-Ci-kdn">
+                                        <rect key="frame" x="15" y="71" width="345" height="18"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" staticText="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" systemColor="placeholderTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZgK-TL-DcE">
+                                        <rect key="frame" x="15" y="71" width="345" height="482"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="2Og-B7-IC6" id="NYc-Kr-JfZ"/>
+                                        </connections>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIT-hm-jmk">
+                                        <rect key="frame" x="10" y="563" width="355" height="50"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="fAK-8u-Zcq"/>
+                                            <constraint firstAttribute="height" constant="50" id="xPx-qD-J3Z"/>
+                                        </constraints>
+                                        <state key="normal" title="제출하기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="fAK-8u-Zcq"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="fAK-8u-Zcq"/>
+                                                <exclude reference="xPx-qD-J3Z"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="done" destination="2Og-B7-IC6" eventType="touchUpInside" id="LL7-BJ-369"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KUZ-Ci-kdn" firstAttribute="leading" secondItem="ZgK-TL-DcE" secondAttribute="leading" id="2YY-BR-2Pb"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZgK-TL-DcE" secondAttribute="trailing" constant="15" id="3QQ-or-g1Y"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xub-aY-4aD" secondAttribute="trailing" constant="10" id="6Dc-QH-oOD"/>
+                                    <constraint firstAttribute="trailing" secondItem="WIT-hm-jmk" secondAttribute="trailing" constant="10" id="EkF-QW-fBN"/>
+                                    <constraint firstAttribute="bottom" secondItem="WIT-hm-jmk" secondAttribute="bottom" constant="10" id="Fb4-5k-BHP"/>
+                                    <constraint firstItem="Xub-aY-4aD" firstAttribute="top" secondItem="32O-zF-BvM" secondAttribute="bottom" constant="5" id="LAx-iE-MO0"/>
+                                    <constraint firstItem="WIT-hm-jmk" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" constant="10" id="LCx-yD-Vjr"/>
+                                    <constraint firstItem="KUZ-Ci-kdn" firstAttribute="trailing" secondItem="ZgK-TL-DcE" secondAttribute="trailing" id="MJS-d7-YEY"/>
+                                    <constraint firstAttribute="trailing" secondItem="32O-zF-BvM" secondAttribute="trailing" constant="15" id="Nfe-1m-FBZ"/>
+                                    <constraint firstItem="Xub-aY-4aD" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" constant="10" id="VIk-XI-Kfv"/>
+                                    <constraint firstItem="ZgK-TL-DcE" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" constant="15" id="VxQ-Wh-Ey1"/>
+                                    <constraint firstItem="32O-zF-BvM" firstAttribute="top" secondItem="bG0-vg-VQC" secondAttribute="top" constant="10" id="Yza-RV-bUm"/>
+                                    <constraint firstItem="ZgK-TL-DcE" firstAttribute="top" secondItem="Xub-aY-4aD" secondAttribute="bottom" constant="15" id="c7V-jG-bKW"/>
+                                    <constraint firstItem="WIT-hm-jmk" firstAttribute="top" secondItem="ZgK-TL-DcE" secondAttribute="bottom" constant="10" id="cKE-1a-BHj"/>
+                                    <constraint firstItem="32O-zF-BvM" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" constant="15" id="m1Y-mG-4fE"/>
+                                    <constraint firstItem="KUZ-Ci-kdn" firstAttribute="top" secondItem="ZgK-TL-DcE" secondAttribute="top" id="yI1-fG-Wsv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aO3-nb-4J3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bG0-vg-VQC" firstAttribute="leading" secondItem="aO3-nb-4J3" secondAttribute="leading" id="Cqv-uS-yMA"/>
+                            <constraint firstItem="bG0-vg-VQC" firstAttribute="trailing" secondItem="aO3-nb-4J3" secondAttribute="trailing" id="R6W-wF-Mwg"/>
+                            <constraint firstAttribute="bottom" secondItem="bG0-vg-VQC" secondAttribute="bottom" priority="700" id="TkO-f3-ZjC"/>
+                            <constraint firstItem="bG0-vg-VQC" firstAttribute="bottom" secondItem="aO3-nb-4J3" secondAttribute="bottom" priority="800" id="hPb-oB-2c0"/>
+                            <constraint firstItem="bG0-vg-VQC" firstAttribute="top" secondItem="aO3-nb-4J3" secondAttribute="top" id="jbP-ZX-07I"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Suggestion" id="Ccr-X0-wUi">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="v9H-Hj-s5J">
+                            <color key="tintColor" systemColor="secondaryLabelColor"/>
+                            <connections>
+                                <action selector="cancel" destination="2Og-B7-IC6" id="6TF-Sx-nlb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="containerLayoutBottom" destination="hPb-oB-2c0" id="j6e-MC-AER"/>
+                        <outlet property="containerSuperviewBottom" destination="TkO-f3-ZjC" id="wWl-oA-TBP"/>
+                        <outlet property="mailField" destination="32O-zF-BvM" id="XXb-qN-jKw"/>
+                        <outlet property="sendButton" destination="WIT-hm-jmk" id="fPR-BV-UUW"/>
+                        <outlet property="textView" destination="ZgK-TL-DcE" id="mWf-Ye-FaV"/>
+                        <outlet property="textViewPlaceHolderLabel" destination="KUZ-Ci-kdn" id="coh-39-eIh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n4i-Cq-Bqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="701.60000000000002" y="67.916041979010501"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="quaternaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
