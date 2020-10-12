@@ -61,7 +61,7 @@ public class SuggestionViewController: UIViewController {
     }
     
     static public func instantiate() -> UIViewController {
-        let viewController = UIStoryboard(name: "Support", bundle: Bundle.module).instantiateViewController(withIdentifier: "SLSuggestionNavigationController")
+        let viewController = UIStoryboard(name: "Support", bundle: Bundle(for: self)).instantiateViewController(withIdentifier: "SLSuggestionNavigationController")
         return viewController
     }
     
