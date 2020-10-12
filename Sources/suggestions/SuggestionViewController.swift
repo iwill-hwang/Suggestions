@@ -42,7 +42,7 @@ private extension String {
 public class SuggestionViewController: UIViewController {
     private var alreadyAppeared = false
     
-    weak var delegate: SuggestionViewControllerDelegate?
+    public weak var delegate: SuggestionViewControllerDelegate?
     
     var placeholder: String?
     
