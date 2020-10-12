@@ -9,26 +9,26 @@
 import Foundation
 import UIKit
 
-struct Suggestion {
-    struct Info {
-        let bundleIdentifier: String
-        let appVersion: String
-        let systemVersion: String
-        let locale: String
-        let date: Date
+public struct Suggestion {
+    public struct Info {
+        public let bundleIdentifier: String
+        public let appVersion: String
+        public let systemVersion: String
+        public let locale: String
+        public let date: Date
+    }
+
+    public struct Content {
+        public let email: String?
+        public let content: String
     }
     
-    struct Content {
-        let email: String?
-        let content: String
-    }
-    
-    let info: Info
-    let content: Content
+    public let info: Info
+    public let content: Content
 }
 
 
-protocol SuggestionViewControllerDelegate: class {
+public protocol SuggestionViewControllerDelegate: class {
     func suggestionViewController(_ controller: SuggestionViewController, didFinishWith suggestion: Suggestion)
     func suggestionViewControllerDidCancel(_ controller: SuggestionViewController)
 }
