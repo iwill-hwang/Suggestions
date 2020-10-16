@@ -44,7 +44,7 @@ public class SuggestionViewController: UIViewController {
     
     public weak var delegate: SuggestionViewControllerDelegate?
     
-    var placeholder: String?
+    public var placeholder: String?
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewPlaceHolderLabel: UILabel!
