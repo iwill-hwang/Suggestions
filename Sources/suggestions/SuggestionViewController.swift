@@ -45,9 +45,12 @@ public class SuggestionViewController: UIViewController {
     public weak var delegate: SuggestionViewControllerDelegate?
     
     public var placeholder: String?
+    public var useMail = true
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewPlaceHolderLabel: UILabel!
+    @IBOutlet weak private var textViewTop: NSLayoutConstraint!
+    @IBOutlet weak private var mailContainer: UIView!
     @IBOutlet weak var mailField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var containerLayoutBottom: NSLayoutConstraint!
@@ -71,7 +74,7 @@ public class SuggestionViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Suggestions".localized()
+        self.title = self.title ?? "Suggestions".localized()
         
         updateSendButton(false)
         
@@ -88,6 +91,9 @@ public class SuggestionViewController: UIViewController {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        textViewTop.priority = UILayoutPriority(rawValue: useMail ? 700 : 900)
+        mailContainer.isHidden = useMail == false
     }
     
     override public func viewWillAppear(_ animated: Bool) {

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N7F-fY-PGY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N7F-fY-PGY">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,22 +35,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bG0-vg-VQC">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일 (선택사항) 을 남겨주시면 답변을 보내드립니다." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="32O-zF-BvM">
-                                        <rect key="frame" x="15" y="10" width="345" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihJ-Mi-WEa">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일 (선택사항) 을 남겨주시면 답변을 보내드립니다." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="32O-zF-BvM">
+                                                <rect key="frame" x="15" y="10" width="345" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Nm6-1d-fff"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="2Og-B7-IC6" id="TKM-cv-gfU"/>
+                                                </connections>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xub-aY-4aD">
+                                                <rect key="frame" x="10" y="55" width="355" height="1"/>
+                                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="1" id="sCg-fl-35U"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Nm6-1d-fff"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="2Og-B7-IC6" id="TKM-cv-gfU"/>
-                                        </connections>
-                                    </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xub-aY-4aD">
-                                        <rect key="frame" x="10" y="55" width="355" height="1"/>
-                                        <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1" id="sCg-fl-35U"/>
+                                            <constraint firstAttribute="height" constant="56" id="1Vo-2G-j2R"/>
+                                            <constraint firstAttribute="trailing" secondItem="32O-zF-BvM" secondAttribute="trailing" constant="15" id="7us-sc-5Np"/>
+                                            <constraint firstItem="32O-zF-BvM" firstAttribute="leading" secondItem="ihJ-Mi-WEa" secondAttribute="leading" constant="15" id="9Yj-Rj-0KF"/>
+                                            <constraint firstItem="32O-zF-BvM" firstAttribute="top" secondItem="ihJ-Mi-WEa" secondAttribute="top" constant="10" id="b3G-WK-6y5"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xub-aY-4aD" secondAttribute="bottom" id="rtl-Vn-c53"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xub-aY-4aD" secondAttribute="trailing" constant="10" id="slq-2k-AnQ"/>
+                                            <constraint firstItem="Xub-aY-4aD" firstAttribute="leading" secondItem="ihJ-Mi-WEa" secondAttribute="leading" constant="10" id="uHN-oH-sQ8"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="여기에 의견을 자유롭게 남겨주세요." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUZ-Ci-kdn">
@@ -100,19 +114,17 @@
                                 <constraints>
                                     <constraint firstItem="KUZ-Ci-kdn" firstAttribute="leading" secondItem="ZgK-TL-DcE" secondAttribute="leading" id="2YY-BR-2Pb"/>
                                     <constraint firstAttribute="trailing" secondItem="ZgK-TL-DcE" secondAttribute="trailing" constant="15" id="3QQ-or-g1Y"/>
-                                    <constraint firstAttribute="trailing" secondItem="Xub-aY-4aD" secondAttribute="trailing" constant="10" id="6Dc-QH-oOD"/>
+                                    <constraint firstItem="ZgK-TL-DcE" firstAttribute="top" secondItem="ihJ-Mi-WEa" secondAttribute="bottom" priority="800" constant="15" id="7LX-qY-mvV"/>
+                                    <constraint firstItem="ihJ-Mi-WEa" firstAttribute="top" secondItem="bG0-vg-VQC" secondAttribute="top" id="7Ld-vr-SkH"/>
                                     <constraint firstAttribute="trailing" secondItem="WIT-hm-jmk" secondAttribute="trailing" constant="10" id="EkF-QW-fBN"/>
                                     <constraint firstAttribute="bottom" secondItem="WIT-hm-jmk" secondAttribute="bottom" constant="10" id="Fb4-5k-BHP"/>
-                                    <constraint firstItem="Xub-aY-4aD" firstAttribute="top" secondItem="32O-zF-BvM" secondAttribute="bottom" constant="5" id="LAx-iE-MO0"/>
                                     <constraint firstItem="WIT-hm-jmk" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" constant="10" id="LCx-yD-Vjr"/>
                                     <constraint firstItem="KUZ-Ci-kdn" firstAttribute="trailing" secondItem="ZgK-TL-DcE" secondAttribute="trailing" id="MJS-d7-YEY"/>
-                                    <constraint firstAttribute="trailing" secondItem="32O-zF-BvM" secondAttribute="trailing" constant="15" id="Nfe-1m-FBZ"/>
-                                    <constraint firstItem="Xub-aY-4aD" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" constant="10" id="VIk-XI-Kfv"/>
+                                    <constraint firstItem="ihJ-Mi-WEa" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" id="SUq-2s-zUJ"/>
                                     <constraint firstItem="ZgK-TL-DcE" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" constant="15" id="VxQ-Wh-Ey1"/>
-                                    <constraint firstItem="32O-zF-BvM" firstAttribute="top" secondItem="bG0-vg-VQC" secondAttribute="top" constant="10" id="Yza-RV-bUm"/>
-                                    <constraint firstItem="ZgK-TL-DcE" firstAttribute="top" secondItem="Xub-aY-4aD" secondAttribute="bottom" constant="15" id="c7V-jG-bKW"/>
                                     <constraint firstItem="WIT-hm-jmk" firstAttribute="top" secondItem="ZgK-TL-DcE" secondAttribute="bottom" constant="10" id="cKE-1a-BHj"/>
-                                    <constraint firstItem="32O-zF-BvM" firstAttribute="leading" secondItem="bG0-vg-VQC" secondAttribute="leading" constant="15" id="m1Y-mG-4fE"/>
+                                    <constraint firstAttribute="trailing" secondItem="ihJ-Mi-WEa" secondAttribute="trailing" id="crU-Tp-dfD"/>
+                                    <constraint firstItem="ZgK-TL-DcE" firstAttribute="top" secondItem="bG0-vg-VQC" secondAttribute="top" priority="700" constant="15" id="v4t-aL-475"/>
                                     <constraint firstItem="KUZ-Ci-kdn" firstAttribute="top" secondItem="ZgK-TL-DcE" secondAttribute="top" id="yI1-fG-Wsv"/>
                                 </constraints>
                             </view>
@@ -138,10 +150,12 @@
                     <connections>
                         <outlet property="containerLayoutBottom" destination="hPb-oB-2c0" id="j6e-MC-AER"/>
                         <outlet property="containerSuperviewBottom" destination="TkO-f3-ZjC" id="wWl-oA-TBP"/>
+                        <outlet property="mailContainer" destination="ihJ-Mi-WEa" id="PFV-kB-FTK"/>
                         <outlet property="mailField" destination="32O-zF-BvM" id="XXb-qN-jKw"/>
                         <outlet property="sendButton" destination="WIT-hm-jmk" id="fPR-BV-UUW"/>
                         <outlet property="textView" destination="ZgK-TL-DcE" id="mWf-Ye-FaV"/>
                         <outlet property="textViewPlaceHolderLabel" destination="KUZ-Ci-kdn" id="coh-39-eIh"/>
+                        <outlet property="textViewTop" destination="v4t-aL-475" id="UGi-ea-CJk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n4i-Cq-Bqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
