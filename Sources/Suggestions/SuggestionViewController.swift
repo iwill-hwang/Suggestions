@@ -64,7 +64,7 @@ public class SuggestionViewController: UIViewController {
         return model
     }
     
-    static public func instantiate(text: String? = nil, delegate: SuggestionViewControllerDelegate? = nil) -> UIViewController {
+    static public func instantiate(text: String? = nil, useMail: Bool = true, delegate: SuggestionViewControllerDelegate? = nil) -> UIViewController {
         let storyboard = UIStoryboard(name: "Support", bundle: Bundle.module)
         let identifier = "SLSuggestionNavigationController"
         let navigationController = storyboard.instantiateViewController(withIdentifier: identifier) as! UINavigationController
@@ -72,6 +72,7 @@ public class SuggestionViewController: UIViewController {
 
         suggestionController.text = text
         suggestionController.delegate = delegate
+        suggestionController.useMail = useMail
         
         return navigationController
     }
