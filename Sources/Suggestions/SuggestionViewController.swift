@@ -22,7 +22,19 @@ public struct Suggestion {
         public let email: String?
         public let content: String
     }
-    
+
+    public struct Options {
+        public let title: String?
+        public let text: String?
+        public let useMail: Bool
+
+        public init(title: String? = nil, text: String? = nil, useMail: Bool = false) {
+            self.title = title
+            self.text = text
+            self.useMail = useMail
+        }
+    }
+
     public let info: Info
     public let content: Content
 }
@@ -40,18 +52,6 @@ private extension String {
 }
 
 public class SuggestionViewController: UIViewController {
-    public struct Options {
-        public let title: String?
-        public let text: String?
-        public let useMail: Bool
-
-        public init(title: String? = nil, text: String? = nil, useMail: Bool = false) {
-            self.title = title
-            self.text = text
-            self.useMail = useMail
-        }
-    }
-
     private var alreadyAppeared = false
     
     public weak var delegate: SuggestionViewControllerDelegate?
@@ -76,7 +76,7 @@ public class SuggestionViewController: UIViewController {
         return model
     }
     
-    static public func instantiate(options: Options? = nil, delegate: SuggestionViewControllerDelegate? = nil) -> UIViewController {
+    static public func instantiate(options: Suggestion.Options? = nil, delegate: SuggestionViewControllerDelegate? = nil) -> UIViewController {
         let storyboard = UIStoryboard(name: "Support", bundle: Bundle.module)
         let identifier = "SLSuggestionNavigationController"
         let navigationController = storyboard.instantiateViewController(withIdentifier: identifier) as! UINavigationController
