@@ -28,7 +28,7 @@ public struct Suggestion {
 }
 
 
-public protocol SuggestionViewControllerDelegate: class {
+public protocol SuggestionViewControllerDelegate: AnyObject {
     func suggestionViewController(_ controller: SuggestionViewController, didFinishWith suggestion: Suggestion)
     func suggestionViewControllerDidCancel(_ controller: SuggestionViewController)
 }
@@ -63,9 +63,16 @@ public class SuggestionViewController: UIViewController {
         return model
     }
     
-    static public func instantiate() -> UIViewController {
-        let viewController = UIStoryboard(name: "Support", bundle: Bundle.module).instantiateViewController(withIdentifier: "SLSuggestionNavigationController")
-        return viewController
+    static public func instantiate(text: String? = nil, delegate: SuggestionViewControllerDelegate? = nil) -> UIViewController {
+        let storyboard = UIStoryboard(name: "Support", bundle: Bundle.module)
+        let identifier = "SLSuggestionNavigationController"
+        let navigationController = storyboard.instantiateViewController(withIdentifier: identifier) as! UINavigationController
+        let suggestionController = navigationController.topViewController as! SuggestionViewController
+
+        suggestionController.textView.text = text
+        suggestionController.delegate = delegate
+        
+        return navigationController
     }
     
     static public func canSendText() -> Bool {
