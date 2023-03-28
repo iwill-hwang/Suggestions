@@ -43,10 +43,11 @@ public class SuggestionViewController: UIViewController {
     private var alreadyAppeared = false
     
     public weak var delegate: SuggestionViewControllerDelegate?
-    
+
+    public var text: String?
     public var placeholder: String?
     public var useMail = true
-    
+
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textViewPlaceHolderLabel: UILabel!
     @IBOutlet weak private var textViewTop: NSLayoutConstraint!
@@ -69,7 +70,7 @@ public class SuggestionViewController: UIViewController {
         let navigationController = storyboard.instantiateViewController(withIdentifier: identifier) as! UINavigationController
         let suggestionController = navigationController.topViewController as! SuggestionViewController
 
-        suggestionController.textView.text = text
+        suggestionController.text = text
         suggestionController.delegate = delegate
         
         return navigationController
@@ -91,7 +92,8 @@ public class SuggestionViewController: UIViewController {
         sendButton.layer.cornerRadius = 5
         sendButton.layer.masksToBounds = true
         sendButton.setTitle("Submit".localized(), for: .normal)
-        
+
+        textView.text = text
         textView.textContainerInset = UIEdgeInsets.zero
         textView.textContainer.lineFragmentPadding = 0
         
